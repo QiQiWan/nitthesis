@@ -1,0 +1,39 @@
+\begin{Appendix}
+
+    这里是附录示例
+
+    \AppendixSection{Algorithm code for generating sample maps and searching for appropriate station locations}
+    
+    \theAppendixSubSection{Generate a map array}
+    
+    \begin{lstlisting}[language=C]
+#include <stdio.h>
+#include <stdlib.h>
+        
+int main()
+{
+    int m = 20, n = 20, d = 20, i, j, l = 20, a, b;
+    int t[] = {1, 1, 0, 0, 0, 0, 0, 0, 0, 0};
+    FILE *fp = fopen("example.map", "w+");
+    fprintf(fp, "%d %d %d %d\n", m, n, d, l);
+    for (i = 0; i < m; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            a = rand() % 10;
+            if (t[a])
+                fprintf(fp, "%d", rand() % 30);
+            else
+                fprintf(fp, "0");
+            if (j == n - 1)
+                fprintf(fp, "\n");
+            else
+                fprintf(fp, "\t");
+        }
+    }
+    fclose(fp);
+    return 0;
+}
+    \end{lstlisting}
+
+\end{Appendix}
