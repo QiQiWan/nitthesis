@@ -103,6 +103,8 @@
 	\ifCHMode
 		\setlength{\parindent}{2em}%
 	\fi
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
 }
 \setlength{\headheight}{15pt}
 
@@ -150,7 +152,7 @@
 \newcommand{\MakeTitlePage}{
 	\begin{titlepage}
 		\begin{center}
-			\zihao{1} \heiti \textbf{南昌工程学院本(专)科毕业设计}\\
+			\zihao{1} \heiti \textbf{南昌工程学院本(专)科毕业论文（设计）}\\
 			\vspace*{1.5cm}
 			\quad
 			\includegraphics[width=5.5cm,height=5.5cm]{figures/nit-logo.jpg}\\{}
@@ -162,7 +164,7 @@
 				\makebox[60mm]{专\quad \quad 业}
 				\underline{\makebox[80mm][c]{ \Major}}\\
 				\vskip 0.4cm
-				\makebox[60mm]{毕业设计(论文)题目}
+				\makebox[60mm]{毕业论文（设计）题目}
 				\underline{\makebox[80mm][c]{ \normalsize \Title}}\\
 				\vskip 0.4cm
 				\makebox[60mm]{学生姓名}
@@ -192,7 +194,7 @@
 		\begin{center}
 			\vspace{4.5cm}
 			\songti \zihao{-2} \ziju{0.6} 南昌工程学院 \\
-			\songti \zihao{1} \ziju{0.6} \textbf{毕业设计(论文)}	\\
+			\songti \zihao{1} \ziju{0.6} \textbf{毕业论文（设计）}	\\
 			\vspace{2cm} \ziju{0}
 			\underline{\makebox[50mm][c]{\songti \zihao{-2} \School}} \makebox[25mm]{\zihao{3} 系（院）} \underline{\makebox[35mm][c]{\kaishu \zihao{4} \ziju{0} \Major}} \makebox[20mm][l]{\zihao{3}专业} \\
 			\vspace{3cm}
@@ -266,7 +268,7 @@
 	\vskip 12cm
 	\begin{flushleft}
 		\large
-		总计\makebox[50mm]{毕业设计(论文)}  \underline{\makebox[25mm][c]{ \PageNumber}} 页\\
+		总计\makebox[50mm]{毕业论文（设计）}  \underline{\makebox[25mm][c]{ \PageNumber}} 页\\
 		\quad \quad \makebox[50mm]{表\qquad \quad \qquad 格}  \underline{\makebox[25mm][c]{ \TableNumber}} 个\\
 		\quad \quad \makebox[50mm]{插\qquad \quad\qquad 图}  \underline{\makebox[25mm][c]{ \FigureNumber}}幅\\
 	\end{flushleft}
@@ -316,6 +318,14 @@
 	\PageHeader
 }
 
+% Define the summary section
+\def\SummaryName{Summary}
+\newenvironment{Summary}{
+	\newpage
+	\section*{\SummaryName}
+	\addcontentsline{toc}{section}{\SummaryName}
+}{\newpage}
+
 % Define the Acknowledgement
 \newcommand{\acknowledgementname}{Acknowledgement}
 \newenvironment{Acknowledgement}{
@@ -337,13 +347,15 @@
 
 \newcounter{AppendixSection}
 \renewcommand{\theAppendixSection}{\Alph{AppendixSection}}
-\newcommand{\AppendixSection}[1]{ \theAppendixSection \Large{ \refstepcounter{AppendixSection}\textbf{\theAppendixSection}\hspace{0.5em} #1} \normalsize}
+\newcommand{\AppendixSection}[1]{ \theAppendixSection \Large{ \refstepcounter{AppendixSection}\textbf{\theAppendixSection}\hspace{0.5em} #1} \normalsize
+	\setcounter{AppendixSubSection}{0}
+}
 
 % Define subheadings in the appendix
 
 \newcounter{AppendixSubSection}
-\renewcommand{\theAppendixSubSection}{\theAppendixSection-\arabic{AppendixSubSection} \quad}
-\newcommand{\AppendixSubSection}[1]{ \large \refstepcounter{AppendixSubSection} \theAppendixSubSection{} \hspace*{0.2cm} \quad #1 \normalsize}
+\renewcommand{\theAppendixSubSection}{\theAppendixSection-\arabic{AppendixSubSection}}
+\newcommand{\AppendixSubSection}[1]{ \large \refstepcounter{AppendixSubSection} \theAppendixSubSection{} \hspace*{0.1cm} #1 \normalsize}
 
 \renewcommand{\figurename}{Figure}
 \renewcommand{\tablename}{Table}
@@ -373,10 +385,9 @@
 	\fancyhf{}
 	\fancyhead{}
 	\fancyhead[CE]{\FancyTitle}  %Odd page header
-	\fancyhead[CO]{南昌工程学院本（专）科毕业设计（论文）}   %Even page header
+	\fancyhead[CO]{南昌工程学院本（专）科毕业论文（设计）}   %Even page header
 	\cfoot{\thepage}
 }
-% \renewcommand{\sectionmark} [1]{\markboth  {}{Chapter \thesection ： #1}}k
 
 \newcommand{\SetSchool}[1]{
 	\def\School{#1}
@@ -385,16 +396,32 @@
 	\def\Major{#1}
 }
 \newcommand{\SetAuthor}[1]{
-	\def\Author{#1}
+	\ifBlindTrial
+		\def\Author{XXX}
+	\else
+		\def\Author{#1}
+	\fi
 }
 \newcommand{\SetClass}[1]{
-	\def\Class{#1}
+	\ifBlindTrial
+		\def\Class{XXX}
+	\else
+		\def\Class{#1}
+	\fi
 }
 \newcommand{\SetStudentID}[1]{
-	\def\StudentID{#1}
+	\ifBlindTrial
+		\def\StudentID{XXXXXXXXXX}
+	\else
+		\def\StudentID{#1}
+	\fi
 }
 \newcommand{\SetInstructor}[1]{
-	\def\Instructor{#1}
+	\ifBlindTrial
+		\def\Instructor{XXX}
+	\else
+		\def\Instructor{#1}
+	\fi
 }
 \newcommand{\SetCompleteDate}[1]{
 	\def\CompleteDate{#1}
@@ -430,8 +457,15 @@
 	\renewcommand{\appendixname}{附录}
 	\renewcommand{\acknowledgementname}{致谢}
 	\floatname{algorithm}{算法}
+	\def\SummaryName{毕业论文（设计）总结}
 	\CTEXsetup[
 		name={第,章},
 		number={\chinese{section}}
 		]{section}
+}
+
+% Blind trial mode
+\newif\ifBlindTrial\BlindTrialfalse
+\newcommand{\BlindTrialMode}{
+	\BlindTrialtrue
 }

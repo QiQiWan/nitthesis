@@ -2,9 +2,9 @@
 
     这里是附录示例
 
-    \AppendixSection{Algorithm code for generating sample maps and searching for appropriate station locations}
+    \AppendixSection{附录的一级标题}
     
-    \theAppendixSubSection{Generate a map array}
+    \AppendixSubSection{附录的二级标题}
     
     \begin{lstlisting}[language=C]
 #include <stdio.h>
@@ -35,5 +35,48 @@ int main()
     return 0;
 }
     \end{lstlisting}
+
+    \AppendixSubSection{文中数据}
+
+    \begin{table}[H]
+        \centering
+        \caption{Part of the order data chart}
+        \label{table.OrderChart}
+        \begin{tabular}{ccccc}
+            \toprule
+            \textbf{No.}    &   \textbf{Order time} &   \textbf{Starting node}  &   \textbf{Destination node}   &   \textbf{Shortest distance}   \\
+            \midrule
+            200             &   60                  &    (18, 2)                 &   (20, 4)    &   4   \\
+            201             &   60                  &    (18, 2)                 &   (20, 4)    &   4   \\
+            202             &   60                  &    (18, 2)                 &   (20, 4)    &   4   \\
+            203             &   60                  &    (18, 2)                 &   (20, 5)    &   5   \\
+            204             &   60                  &    (18, 2)                 &   (20, 5)    &   5   \\
+            205             &   60                  &    (18, 2)                 &   (20, 5)    &   5   \\
+            206             &   60                  &    (18, 2)                 &   (20, 5)    &   5   \\
+            207             &   61                  &    (18, 2)                 &   (21, 4)    &   5   \\
+            208             &   61                  &    (18, 2)                 &   (21, 4)    &   5   \\
+            209             &   61                  &    (18, 2)                 &   (21, 4)    &   5   \\
+            210             &   61                  &    (18, 2)                 &   (21, 4)    &   5   \\
+            211             &   61                  &    (18, 2)                 &   (24, 16)   &   20  \\
+            212             &   61                  &    (18, 2)                 &   (24, 16)   &   20  \\
+            213             &   61                  &    (18, 2)                 &   (24, 16)   &   20  \\
+            214             &   61                  &    (18, 2)                 &   (24, 16)   &   20  \\
+            215             &   61                  &    (18, 2)                 &   (24, 16)   &   20  \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \AppendixSubSection{发表的研究论文}
+
+    \begin{thebibliography}{1}
+
+        \bibitem{2019Path}
+        A.~Chatterjee and H.~Reza.
+        \newblock Path planning algorithm to enable low altitude delivery drones at the
+          city scale.
+        \newblock In {\em 6th Annual Conf. on Computational Science \& Computational
+          Intelligence}, 2019.
+        
+    \end{thebibliography}
 
 \end{Appendix}

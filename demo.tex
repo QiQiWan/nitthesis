@@ -1,6 +1,8 @@
 \documentclass{nitthesis}
 % 开启中文模式
 \ChineseMode
+% 开启盲审模式
+% \BlindTrialMode
 
 % 配置文章信息
 % 学院
@@ -25,17 +27,19 @@
 \SetThesisID{YH-2102-3}
 
 % 配置总页数
-\SetPages{20}
+\SetPages{23}
 % 配置总表格数
 \SetTables{2}
 % 配置总图片数
-\SetFigures{5}
+\SetFigures{9}
 % 英文标题
 \EnglishTitle{Latex graduation thesis template manual}
 % 中文标题
 \ChineseTitle{latex毕业论文模板说明书}
 
 \begin{document}
+% 生成论文封面
+\MakeSubmitPage
 % 生成论文扉页
 \MakeCover
 % 根据中英文模式生成摘要
@@ -47,7 +51,6 @@
 \newpage
 
 \Section{使用方法-Usage}
-
 \subsection{写在前面}
 
 使用本模板前强烈建议先具有一定的latex基础，建议阅读latex 相关入门书籍，这里建议\href{file:doc/lshort-zh-cn.pdf}{《lshort》}，本模板中附带了该电子书，在\Code{doc}文件夹中，名字叫做\href{doc/lshort-zh-cn.pdf}{lshort-zh-cn.pdf}，这本书大概两个半小时就能读完。
@@ -58,9 +61,37 @@
 
 主语言为英语的论文不用打开中文模式，主语言为中文的论文在文档第二行插入\Code{$\backslash$ChineseMode}命令以打开中文模式。
 
+整个毕业论文文件目录必须包括主文档\Code{demo.tex}（主文档名可以改为任意\Code{XXX.tex}）。其他辅助文档包括\Code{Abstract.tex}、\Code{CHAbstract.tex}、\Code{summary.tex}、\Code{acknowledgement.tex}、\Code{appendix.tex}六个\LaTeX{}基本文档部件（除了中英文摘要部件，其他也可改名，但是需要后文能够正确引用，不建议改名）。
+
+这六个基本文档部件必须在同一目录下
+
+这六个基本文档部件必须在同一目录下
+
+这六个基本文档部件必须在同一目录下
+
+\Code{nitthesis.cls}文件是毕业论文模板的样式文件，没事不要修改！！！
+
+六个基本文档部件必须与\Code{nitthesis.cls}文件在同一级目录下！！！
+
+六个基本文档部件必须与\Code{nitthesis.cls}文件在同一级目录下！！！
+
+六个基本文档部件必须与\Code{nitthesis.cls}文件在同一级目录下！！！
+
+
 文中所使用到的全部图片应当保存至\Code{img}文件夹，防止文件目录过于臃肿。
 
 \Code{figures}中的图片文件为本模板需要用到的图片文件，最好不要去动它。
+
+\subsection{开源}
+
+本毕业论文模板已开源，开源地址：
+
+\begin{enumerate}
+    \item \Code{Coding}: \href{https://eatrice.coding.net/public/yaohuxueyuan/nitthesis/git/files}{https://eatrice.coding.net/public/yaohuxueyuan/nitthesis/git/files}
+    \item \Code{Github}: \href{https://github.com/QiQiWan/nitthesis}{https://github.com/QiQiWan/nitthesis}
+\end{enumerate}
+
+欢迎大家\Code{PR}!
 
 \subsection{模板的目录结构}
 
@@ -91,6 +122,13 @@
             关键词2；
             关键词3 
         \end{CHKeyWords}
+    \end{lstlisting}
+
+    \item \Code{summary.tex}, 这是论文总结部分，你需要将文章的总结写在\Code{Summary}环境中，如下所示：
+    \begin{lstlisting}
+        \begin{Summary}
+            ......
+        \end{Summary}
     \end{lstlisting}
 
     \item \Code{acknowledgement.tex}, 这是文档的致谢部分，你需要将致谢的内容写在\Code{Acknowledgement}环境中，如下所示：
@@ -219,6 +257,10 @@
 
 插入目录使用\Code{$\backslash$MakeContent}命令，一行代码即可，将此代码直接插入到想要插入目录的位置即可。具体使用效果请看本教程的源代码。
 
+\subsubsection{插入论文总结}
+
+在论文总结\Code{summary.tex}文件中写好致谢内容后，在需要插入论文总结页面的地方加上如下代码：\Code{$\backslash$include\{summary\}}即可。
+
 \subsubsection{插入致谢}
 
 在致谢文件\Code{acknowledgement.tex}文件中写好致谢内容后，在需要插入致谢页面的地方加上如下代码：\Code{$\backslash$include\{acknowledgement\}}即可。
@@ -237,27 +279,33 @@
 
 使用\Code{$\backslash$MakeCover}命令生成毕业论文扉页，本文档的第一页即为扉页示例。一般添加在文档开始之后。
 
-\subsubsection{瑶湖学院院级盲审封面模板}
+\subsubsection{瑶湖学院院级封面模板}
 
-使用\Code{$\backslash$MakeYaohuTitlePage}命令生成瑶湖学院盲审封面，该封面独占一页，一般添加在扉页之前。该页形式如下图所示：
+使用\Code{$\backslash$MakeYaohuTitlePage}命令生成瑶湖学院封面，该封面独占一页，一般添加在扉页之前。该页形式如下图所示：
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=0.8\linewidth]{Yaohutitlepage.jpg}
-        \caption{瑶湖学院院级盲审封面}
+        \caption{瑶湖学院院级封面}
     \end{center}
 \end{figure}
 
-\subsubsection{南昌工程学院校级盲审封面模板}
+\subsubsection{南昌工程学院校级封面模板}
 
-使用\Code{$\backslash$MakeSubmitPage}命令生成南昌工程学院校级盲审封面，该封面独占一页，一般添加在扉页之前。该页形式如下图所示：
+使用\Code{$\backslash$MakeSubmitPage}命令生成南昌工程学院校级封面，该封面独占一页，一般添加在扉页之前。该页形式如下图所示：
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=0.8\linewidth]{submitpage.jpg}
-        \caption{南昌工程学院校级盲审封面}
+        \caption{南昌工程学院校级封面}
     \end{center}
 \end{figure}
+
+\subsubsection{盲审模式}
+
+本模板已经支持盲审模式。
+
+论文盲审需要将毕业论文的个人信息等隐去，直接在本文档的开头加入\Code{$\backslash$BlindTrialMode}命令即可，该命令会将封面中的个人信息隐去。但是如果文中出现了个人信息需要手动修改，同时有的学院要求盲审不要加入致谢页面，此时需要手动删除致谢页面。
 
 \subsection{中英文论文切换}
 
@@ -437,18 +485,6 @@ Therefore, if the starting node and the end node are too far apart, the radius o
     \label{fig.ThreeFigs}
 \end{figure}
 
-\subsubsection{参考文献示例}
-
-\bibfile{reference}
-
-\subsubsection{致谢示例}
-
-\include{acknowledgement}
-
-\subsubsection{附录示例}
-
-\include{appendix}
-
 \Section{模板设计依据}
 
 本模板参考《规范》所设计，以下将对规范的每一条内容进行分析：
@@ -500,10 +536,47 @@ Therefore, if the starting node and the end node are too far apart, the radius o
     \item 完成日期在论文信息下方3.2cm处，小四宋体
 \end{enumerate}
 
-\Section{致谢}
+\subsection{Texlive前端-TexWorks简单使用教程}
 
-本模板由于毕业论文是跟随Prabhu老师做的，老师要求我们使用\LaTeX{}写作，然而在这个过程中发现我们学校竟然没有可以用的\Code{latex}模板，因此为了完成毕业论文任务，就自己写了一个。
+\begin{enumerate}
+    \item 安装texlive套件时如果选择包含\Code{TexWorks 前端}时，会同时安装一个latex编辑器\Code{TexWorks}。安装时勾选选项如下图所示：
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{forestage.jpg}
+        \caption{勾选TexWorks 前端}
+    \end{figure}
 
-感谢宋学长的模板示例，使得我在做一些排版时有借鉴来源，感谢latex小组同学帮助我解决一些排版问题。感谢冷雪辉老师给我们提供格式要求等。感谢张雯雯老师推荐，感谢教务处谢老师的支持。
+    \item 在安装目录下的\Code{bin/win32}文件夹中有 \Code{TexWorks} 可执行程序，双击运行，如下图所示：
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{dirs.jpg}
+        \caption{找到TexWorks编辑器}
+    \end{figure}
+    
+    \item 启动 \Code{TexWorks} 前端，在弹出的界面中选择打开\Code{demo}文件，如下图所示：
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{openfile.jpg}
+        \caption{选择打开文件}
+    \end{figure}
+
+    \item 打开\Code{demo}文档后，更换编译引擎，点击绿色三角形编译文档，编译本文档需要的引擎有两个：\Code{XeLaTeX} 和 \Code{BibTeX}，如下图所示：
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{chooseengine.jpg}
+        \caption{更换编译引擎}
+    \end{figure}
+
+    \item 按照 \Code{XeLaTeX  ->  BibTeX  ->  XeLaTeX  ->  XeLaTeX} 分四次先后编译文档，即可生成 \Code{demo.pdf} 文件。
+    
+\end{enumerate}
+
+\include{summary}
+
+\bibfile{reference}
+
+\include{acknowledgement}
+
+\include{appendix}
 
 \end{document}
