@@ -1,10 +1,10 @@
 # 写在前面
 
-本项目为南昌工程学院latex本科毕业论文模板，详细使用方法请参考项目库中的`毕业论文模板使用说明书.pdf`文档
+本项目为南昌工程学院latex本科毕业论文模板，详细使用方法请参考项目库中的`毕业论文模板使用说明书.pdf`文档。
 
 ## 为什么我们要使用latex
 
-为啥呢，我也不知道，但是其他的老师给了一个参考答案，详见：[为什么我们要使用latex.pdf](https://eatrice.coding.net/public/yaohuxueyuan/nitthesis/git/files/master/doc/whyweshoulduselatex.pdf)，网络地址：[为什么我们要使用latex.pdf](https://yjshy.nwsuaf.edu.cn/docs/2019-04/20190416153810837639.pdf)
+为啥呢，我也不知道，但是其他的老师给了一个参考答案，详见：[为什么我们要使用latex.pdf](https://eatrice.coding.net/public/yaohuxueyuan/nitthesis/git/files/master/doc/whyweshoulduselatex.pdf)，网络地址：[为什么我们要使用latex.pdf](https://yjshy.nwsuaf.edu.cn/docs/2019-04/20190416153810837639.pdf)只看简介即可。
 
 ## 本项目已经开源
 

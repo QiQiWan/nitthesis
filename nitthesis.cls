@@ -25,6 +25,8 @@
 \RequirePackage{setspace}
 % The support for a long table
 \RequirePackage{longtable}
+% Modify the format of enumrate environment
+\RequirePackage{enumitem}
 
 \RequirePackage{listings}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -323,6 +325,7 @@
 \newenvironment{Summary}{
 	\newpage
 	\section*{\SummaryName}
+	\fancyhead[CE]{\MakeUppercase{\SummaryName}}
 	\addcontentsline{toc}{section}{\SummaryName}
 }{\newpage}
 
@@ -331,7 +334,17 @@
 \newenvironment{Acknowledgement}{
 	\newpage
 	\section*{\acknowledgementname}
+	\fancyhead[CE]{\MakeUppercase{\acknowledgementname}}
 	\addcontentsline{toc}{section}{\acknowledgementname}
+}{\newpage}
+
+% Define the Undergraduate thesis
+\def\UndergraduateThesisName{Undergraduate thesis}
+\newenvironment{UndergraduateThesis}{
+	\newpage
+	\section*{\UndergraduateThesisName}
+	\fancyhead[CE]{\MakeUppercase{\UndergraduateThesisName}}
+	\addcontentsline{toc}{section}{\UndergraduateThesisName}
 }{\newpage}
 
 % Add the appendixes
@@ -458,6 +471,7 @@
 	\renewcommand{\acknowledgementname}{致谢}
 	\floatname{algorithm}{算法}
 	\def\SummaryName{毕业论文（设计）总结}
+	\def\UndergraduateThesisName{本科期间发表的论文}
 	\CTEXsetup[
 		name={第,章},
 		number={\chinese{section}}

@@ -27,7 +27,7 @@
 \SetThesisID{YH-2102-3}
 
 % 配置总页数
-\SetPages{23}
+\SetPages{24}
 % 配置总表格数
 \SetTables{2}
 % 配置总图片数
@@ -131,6 +131,8 @@
         \end{Summary}
     \end{lstlisting}
 
+    \item \Code{reference.bib}, 这是参考文献数据库，其格式如文件内容所示，如何使用详见：\href{https://blog.csdn.net/tmylzq187/article/details/51355261}{bib文件使用方法}，只需参考链接中的文档格式即可，如何在文中引用请参考下文中的\Code{$\backslash$UpCite}命令的使用方法。
+
     \item \Code{acknowledgement.tex}, 这是文档的致谢部分，你需要将致谢的内容写在\Code{Acknowledgement}环境中，如下所示：
     \label{sec.1.1.1}
     \begin{lstlisting}
@@ -139,6 +141,16 @@
         \end{Acknowledgement}
     \end{lstlisting}
 
+    \item \Code{undergraduatethesis.tex}, 这是本科期间发表的论文部分，你需要将你发表的论文内容写\\在\Code{UndergraduateThesis}和有序列表环境中环境中，如下所示：
+    \begin{lstlisting}
+        \begin{UndergraduateThesis}
+            \begin{enumerate}[{label=[\arabic*]}]
+                ......
+            \end{enumerate}
+        \end{UndergraduateThesis}
+    \end{lstlisting}
+
+
     \item \Code{appendix.tex}, 这是文档的附录，里面存放本文档的附录内容，需要将附录内容写在\Code{Appendix}环境中，如下所示：
     \begin{lstlisting}
         \begin{Appendix}
@@ -146,7 +158,7 @@
         \end{Appendix}
     \end{lstlisting}
 
-    \item \Code{reference.bib}, 这是参考文献数据库，其格式如文件内容所示，如何使用详见：\href{https://blog.csdn.net/tmylzq187/article/details/51355261}{bib文件使用方法}，只需参考链接中的文档格式即可，如何在文中引用请参考下文中的\Code{$\backslash$UpCite}命令的使用方法。
+
 \end{enumerate}
 
 在使用本模板开始写作之前，必须先填写完如下图\ref{fig.Information}所示信息：
@@ -265,6 +277,10 @@
 
 在致谢文件\Code{acknowledgement.tex}文件中写好致谢内容后，在需要插入致谢页面的地方加上如下代码：\Code{$\backslash$include\{acknowledgement\}}即可。
 
+\subsubsection{插入本科期间发表的论文}
+
+在本科论文文件\Code{undergraduatethesis.tex}文件中的列表环境中写好你的参考文献列表之后，在需要插入本科期间发表论文的地方加上如下代码：\Code{$\backslash$include\{undergraduatethesis\}}即可。
+
 \subsubsection{插入附录}
 
 在附录文件\Code{appendix.tex}文件中写好附录内容后，在需要插入附录页面的地方加上如下代码：\Code{$\backslash$include\{appendix\}}即可。
@@ -272,6 +288,18 @@
 附录使用不同的标题格式，使用\Code{$\backslash$AppendixSection\{\}}命令，该命令会生成附录的一级标题，该标题不会显示在目录上，其开头以大写字母A,B,C进行编号。
 
 使用\Code{$\backslash$AppendixSubSection\{\}}命令生成附录的二级标题，该标题不会显示在目录上，其开头以附录一级标题加上二级标题的序号组成，比如在序号为A的一级附录标题下的第二个二级附录标题，它将会显示为：\Code{A-2}。没有设置附录三级标题。
+
+\subsubsection{以上可自由待插入内容先后顺序}
+
+当你的论文包含以上所有部分时，必须按照如下顺序进行插入：
+
+\begin{enumerate}
+    \item 毕业设计（论文）总结，命令：\Code{$\backslash$include\{summary\}}
+    \item 参考文献，命令：\Code{$\backslash$bibfile\{reference\}}
+    \item 致谢，命令：\Code{$\backslash$include\{acknowledgement\}}
+    \item 本科期间发表的论文，命令：\Code{$\backslash$include\{undergraduatethesis\}}
+    \item 附录，命令：\Code{$\backslash$include\{appendix\}}
+\end{enumerate}
 
 \subsection{模板附带的几类封面}
 
@@ -571,12 +599,15 @@ Therefore, if the starting node and the end node are too far apart, the radius o
     
 \end{enumerate}
 
+% 论文总结
 \include{summary}
-
+% 参考文献
 \bibfile{reference}
-
+% 致谢
 \include{acknowledgement}
-
+% 本科期间发表的论文
+\include{undergraduatethesis}
+% 附录
 \include{appendix}
 
 \end{document}
