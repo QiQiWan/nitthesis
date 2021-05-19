@@ -4,7 +4,7 @@
 
 ## 为什么我们要使用latex
 
-为啥呢，我也不知道，但是其他的老师给了一个参考答案，详见：[为什么我们要使用latex.pdf](doc/whyweshoulduselatex.pdf)，网络地址：[为什么我们要使用latex.pdf](https://yjshy.nwsuaf.edu.cn/docs/2019-04/20190416153810837639.pdf)
+为啥呢，我也不知道，但是其他的老师给了一个参考答案，详见：[为什么我们要使用latex.pdf](https://eatrice.coding.net/public/yaohuxueyuan/nitthesis/git/files/master/doc/whyweshoulduselatex.pdf，网络地址：[为什么我们要使用latex.pdf](https://yjshy.nwsuaf.edu.cn/docs/2019-04/20190416153810837639.pdf)
 
 ## 本项目已经开源
 
