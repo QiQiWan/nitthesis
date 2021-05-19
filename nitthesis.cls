@@ -312,6 +312,7 @@
 \newcommand{\MakeContent}{
 	\newpage
 	\thispagestyle{empty}
+	\pdfbookmark[1]{\contentsname}{anchor}
 	\tableofcontents
 	\thispagestyle{empty}
 	\newpage

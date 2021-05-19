@@ -10,7 +10,9 @@
 
 Coding: [https://eatrice.coding.net/public/yaohuxueyuan/nitthesis/git/files](https://eatrice.coding.net/public/yaohuxueyuan/nitthesis/git/files)
 
-Github: [https://github.com/QiQiWan/nitthesis](https://github.com/QiQiWan/nitthesis)
+Gitee: [https://gitee.com/EatRice-Me/nitthesis](https://gitee.com/EatRice-Me/nitthesis) (可以下载zip压缩包)
+
+Github: [https://github.com/QiQiWan/nitthesis](https://github.com/QiQiWan/nitthesis) (可能会有网络连接问题)
 
 欢迎各位同学参与完善，可以直接通过`git push`进行提交，或者是通过邮箱：[qi5516@qq.com](mailto:qi5516@qq.com)邮件通知我。
 
