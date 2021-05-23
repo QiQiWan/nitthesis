@@ -19,6 +19,15 @@
 
 \RequirePackage[colorlinks,linkcolor=blue]{hyperref}% code block
 \RequirePackage{xcolor}
+\RequirePackage[normalem]{ulem}
+
+% \Requirepackage{etoolbox}
+% \makeatletter
+% \def\@xobeysp{\hspace{0pt}\mbox{ }\hspace{0pt}}
+% \appto\verbatim@font{\hyphenchar\font`-\relax}
+% \apptocmd\@sverb{\hspace*{0pt}}{}{}
+% \makeatother
+
 \RequirePackage{titletoc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{fancyhdr}
@@ -53,11 +62,13 @@
 	tabsize=3,
 }
 \linespread{1.5}
+\definecolor{GrayShell}{RGB}{248, 248, 248}
 \newcommand{\Code}[1]{
-	\definecolor{GrayShell}{RGB}{248, 248, 248}
-	\colorbox{GrayShell}{\ttfamily\color{deeppink}#1}
-	% \textcolor{deeppink}{\ttfamily #1 }}
+	\hl{ #1 }
 }
+
+\newcommand\hl{\bgroup\markoverwith
+  {\textcolor{GrayShell}{\rule[-.5ex]{2pt}{2.5ex}}}\ttfamily \color{deeppink}\ULon}
 
 \newcommand{\CodeBlock}[1]{
 	\linespread{1}
@@ -84,7 +95,6 @@
 \RequirePackage{underscore}
 % Indent at the first line in every paragraph
 \RequirePackage{indentfirst}
-
 
 % Import references
 \usepackage[numbers,sort]{natbib}

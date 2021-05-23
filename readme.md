@@ -18,6 +18,11 @@ Github: [https://github.com/QiQiWan/nitthesis](https://github.com/QiQiWan/nitthe
 
 # 更新记录
 
+## V1.2
+
+- 修复了`\Code{}`命令不能换行的问题
+- 更新了说明书文档，更新了`\Code{}`命令部分，更新了插入摘要说明
+
 ## V1.1
 
 - 完善了毕业论文模板的总体版式，修复了一些细节上的问题

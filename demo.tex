@@ -59,9 +59,9 @@
 
 如果您的电脑未安装\LaTeXe{}编译引擎，这里提供一个清华大学镜像源下载地址：\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2021-20210325.iso}{texlive2021-20210325.iso}。
 
-主语言为英语的论文不用打开中文模式，主语言为中文的论文在文档第二行插入\Code{$\backslash$ChineseMode}命令以打开中文模式。
+主语言为英语的论文不用打开中文模式，主语言为中文的论文在文档第二行插入\Code{$\backslash$Chines eMode}命令以打开中文模式。
 
-整个毕业论文文件目录必须包括主文档\Code{demo.tex}（主文档名可以改为任意\Code{XXX.tex}）。其他辅助文档包括\Code{Abstract.tex}、\Code{CHAbstract.tex}、\Code{summary.tex}、\Code{acknowledgement.tex}、\Code{appendix.tex}六个\LaTeX{}基本文档部件（除了中英文摘要部件，其他也可改名，但是需要后文能够正确引用，不建议改名）。
+整个毕业论文文件目录必须包括主文档\Code{demo.tex}（主文档名可以改为任意\Code{XXX.tex}）。其他辅助文档包括\Code{Abstract.tex}、\Code{CHAbstract.tex}、\Code{summary.tex}、\Code{acknowledge ment.tex}、\Code{appendix.tex}六个\LaTeX{}基本文档部件（除了中英文摘要部件，其他也可改名，但是需要后文能够正确引用，不建议改名）。
 
 这六个基本文档部件必须在同一目录下
 
@@ -134,7 +134,7 @@
 
     \item \Code{reference.bib}, 这是参考文献数据库，其格式如文件内容所示，如何使用详见：\href{https://blog.csdn.net/tmylzq187/article/details/51355261}{bib文件使用方法}，只需参考链接中的文档格式即可，如何在文中引用请参考下文中的\Code{$\backslash$UpCite}命令的使用方法。
 
-    \item \Code{acknowledgement.tex}, 这是文档的致谢部分，你需要将致谢的内容写在\Code{Acknowledgement}环境中，如下所示：
+    \item \Code{acknowledgement.tex}, 这是文档的致谢部分，你需要将致谢的内容写在\Code{Acknowl edgement}环境中，如下所示：
     \label{sec.1.1.1}
     \begin{lstlisting}
         \begin{Acknowledgement}
@@ -213,9 +213,11 @@
 
 \subsubsection{行内代码-Code}
 
-行内代码\Code{$\backslash$Code\{your code\}}命令提供一种行内代码的格式化形式，其产生一个淡灰色边框和深粉色等宽字体，用于在行间插入小片段代码或强调某个名词。
+行内代码\Code{$\backslash$Code\{your code\}}命令提供一种行内代码（高亮）的格式化形式，其产生一个淡灰色边框和深粉色等宽字体，用于在行间插入小片段代码或强调某个名词。
 
-该命令存在一个比较重要的问题---不会主动换行，因此为了防止使用此命令会溢出文本边界，如上面\ref{sec.1.1.1}所示，不要使用太长的内容作为代码块插入到文档中，若必须使用大段代码，则应使用代码块环境。
+\sout{该命令存在一个比较重要的问题---不会主动换行，因此为了防止使用此命令会溢出文本边界，如上面\ref{sec.1.1.1}所示，不要使用太长的内容作为代码块插入到文档中，若必须使用大段代码，则应使用代码块环境。}
+
+如今行内代码\Code{$\backslash$Code\{your code\}}命令支持了自动换行，自动换行会在空格处或标点符号处发生。如果您的高亮内容是一串很长的连续字母或文字，\LaTeXe{}引擎识别不到空格或标点符号你可以在需要换行的地方补上空格即可实现正常换行。如下所示，使用空格换行很长的一串文字：\Code{abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefgh ijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz}
 
 \subsubsection{参考文献的插入}
 
@@ -248,7 +250,11 @@
     \item 英文模式：英文摘要在前，中文摘要在后
 \end{enumerate}
 
-\subsubsection{如何插入英文摘要和关键词}
+\subsubsection{如何插入摘要和关键词}
+
+在页面的指定位置处使用命令\Code{$\backslash$MakeAbstract}即可在相应位置插入摘要内容。中英文摘要的顺序会根据是否开启中文模式进行相应的调整。中英文摘要的文件名不可改动。
+
+\subsubsection{如何编辑英文摘要和关键词}
 
 英文摘要和关键词的内容写在\Code{Abstract.tex}文件中。
 
@@ -256,7 +262,7 @@
 
 英文关键词使用\Code{$\backslash$begin\{KeyWords\} ... $\backslash$end\{KeyWords\}}的方式输入，建议一行输完，每个关键词使用\Code{;}分隔，相邻两个关键词之间空一个空格，就像这样：\Code{word1; word2}。当然也可以一行一个，记得每行带上一个分号同时注意空格。
 
-\subsubsection{如何插入中文摘要和关键词}
+\subsubsection{如何编辑中文摘要和关键词}
 
 中文摘要和关键词的内容写在\Code{CHAbstract.tex}文件中。
 
@@ -280,7 +286,7 @@
 
 \subsubsection{插入本科期间发表的论文}
 
-在本科论文文件\Code{undergraduatethesis.tex}文件中的列表环境中写好你的参考文献列表之后，在需要插入本科期间发表论文的地方加上如下代码：\Code{$\backslash$include\{undergraduatethesis\}}即可。
+在本科论文文件\Code{undergraduatethesis.tex}文件中的列表环境中写好你的参考文献列表之后，在需要插入本科期间发表论文的地方加上如下代码：\Code{$\backslash$include\{undergraduat ethesis\}}即可。
 
 \subsubsection{插入附录}
 
@@ -392,15 +398,6 @@
         $NB_n$             & The set of all adjacent node of a node n                                                     \\
         $NA$               & The set of the nodes which has been already passed                                           \\
         $ND$               & The set of the nodes which has been determined to go through                                 \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
-        $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
         $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
         $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
         $(Node_i, Node_j)$ & The ordered number pair that represents a path                                               \\
