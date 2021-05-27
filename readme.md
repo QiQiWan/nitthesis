@@ -18,7 +18,7 @@ Github: [https://github.com/QiQiWan/nitthesis](https://github.com/QiQiWan/nitthe
 
 # 更新记录
 
-## 1.3
+## V1.3
 
 - 新增了插入空白页命令`\BlankPage`，更新了相关文档内容
 - 删除了`Mathtype`软件安装包
