@@ -100,6 +100,7 @@
 \usepackage[numbers,sort]{natbib}
 \renewcommand{\refname}{References}
 \newcommand{\bibfile}[1]{
+	\MainContenttrue
 	\bibliographystyle{unsrt}
 	% \bibliographystyle{plainnat}
 	\linespread{0.5}
@@ -111,6 +112,7 @@
 
 \newcommand{\Section}[1]{
 	\newpage
+	\MainContenttrue
 	\section{#1}
 	\ifCHMode
 		\setlength{\parindent}{2em}%
@@ -162,6 +164,7 @@
 
 % Make the title page
 \newcommand{\MakeTitlePage}{
+	\MainContentfalse
 	\begin{titlepage}
 		\begin{center}
 			\zihao{1} \heiti \textbf{南昌工程学院本(专)科毕业论文（设计）}\\
@@ -202,6 +205,7 @@
 
 % Make the Submit Page
 \newcommand{\MakeSubmitPage}{
+	\MainContentfalse
 	\begin{titlepage}
 		\begin{center}
 			\vspace{4.5cm}
@@ -231,6 +235,7 @@
 
 % Yaohu Title Page
 \newcommand{\MakeYaohuTitlePage}{
+	\MainContentfalse
 	\begin{titlepage}
 		\ding{72}全日制本科生
 		\vspace*{2.4cm}
@@ -267,6 +272,7 @@
 % The Cover page
 \newcommand{\MakeCover}{
 	\newpage
+	\MainContentfalse
 	\thispagestyle{empty}	
 	% \rightline{\quad\includegraphics[width=5cm,height=1cm]{figures/nit-title.jpg}}
 	\vspace*{3cm}
@@ -286,10 +292,11 @@
 	\end{flushleft}
 	\setlength{\parindent}{1em}
 	\newpage
-	\pagenumbering{Roman}
 }
 
 \newcommand{\MakeAbstract}{
+	\MainContenttrue
+	\pagenumbering{Roman}
 	\ifCHMode
 		\include{CHAbstract}
 		\include{Abstract}
@@ -321,6 +328,7 @@
 	]{section}
 \newcommand{\MakeContent}{
 	\newpage
+	\MainContentfalse
 	\thispagestyle{empty}
 	\pdfbookmark[1]{\contentsname}{anchor}
 	\tableofcontents
@@ -329,6 +337,19 @@
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
 	\PageHeader
+}
+
+% Define the blank page
+\newif\ifMainContent\MainContentfalse
+\newcommand{\BlankPage}{
+	\newpage
+	\vspace{\textheight}
+	\hspace{0.8\linewidth}
+	\ifMainContent
+	\else
+		\thispagestyle{empty}
+	\fi
+	\newpage
 }
 
 % Define the summary section
