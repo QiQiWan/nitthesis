@@ -271,6 +271,10 @@
 \newcommand{\MakeCover}{
 	\newpage
 	\MainContentfalse
+<<<<<<< HEAD
+=======
+	\thispagestyle{empty}	
+>>>>>>> e186442f63002a45c2e086679d4fc9c58ceeb1fb
 	% \rightline{\quad\includegraphics[width=5cm,height=1cm]{figures/nit-title.jpg}}
 	\vspace*{3cm}
 	\begin{center}
@@ -294,10 +298,14 @@
 
 \newcommand{\MakeAbstract}{
 	\MainContenttrue
+<<<<<<< HEAD
 	\newpage
 	\setcounter{page}{1}
 	\pagenumbering{Roman}
 	\pagestyle{plain}
+=======
+	\pagenumbering{Roman}
+>>>>>>> e186442f63002a45c2e086679d4fc9c58ceeb1fb
 	\ifCHMode
 		\include{CHAbstract}
 		\include{Abstract}
@@ -332,6 +340,10 @@
 \newcommand{\MakeContent}{
 	\newpage
 	\MainContentfalse
+<<<<<<< HEAD
+=======
+	\thispagestyle{empty}
+>>>>>>> e186442f63002a45c2e086679d4fc9c58ceeb1fb
 	\pdfbookmark[1]{\contentsname}{anchor}
 	\pagestyle{empty}
 	\tableofcontents
