@@ -18,6 +18,11 @@ Github: [https://github.com/QiQiWan/nitthesis](https://github.com/QiQiWan/nitthe
 
 # 更新记录
 
+## V1.3
+
+- 新增了插入空白页命令`\BlankPage`，更新了相关文档内容
+- 删除了`Mathtype`软件安装包
+
 ## V1.2
 
 - 修复了`\Code{}`命令不能换行的问题
