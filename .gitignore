@@ -7,3 +7,5 @@
 *.blg
 *.rar
 *.zip
+.vscode
+.vscode/*

@@ -179,7 +179,7 @@
 
 \subsubsection{用法不变的组件}
 
-为了减少使用难度，本模板的正文内容同一般的\LaTeX 文档一样撰写即可，包括但不限于：有序列表-enumerate，无序列表-itemize，单图-figure，表格-table和tabular，二级标题-subsection，三级标题-subsubsection，公式-align和equation等公式环境，代码块-lstlisting，算法-algorithm，超链接-href等常用命令。
+为了减少使用难度，本模板的正文内容同一般的\LaTeX 文档一样撰写即可，包括但不限于：有序列表-enumerate，无序列表-itemize，单图-figure，表格-table和tabular，二级标题-subsection，三级标题-subsubsection，公式-equation和shrinkeq环境，代码块-lstlisting，算法-algorithm，超链接-href等常用命令。
 
 \subsubsection{一级标题-Section}
 
@@ -222,6 +222,26 @@
 \sout{该命令存在一个比较重要的问题---不会主动换行，因此为了防止使用此命令会溢出文本边界，如上面\ref{sec.1.1.1}所示，不要使用太长的内容作为代码块插入到文档中，若必须使用大段代码，则应使用代码块环境。}
 
 如今行内代码\Code{$\backslash$Code\{your code\}}命令支持了自动换行，自动换行会在空格处或标点符号处发生。如果您的高亮内容是一串很长的连续字母或文字，\LaTeXe{}引擎识别不到空格或标点符号你可以在需要换行的地方补上空格即可实现正常换行。如下所示，使用空格换行很长的一串文字：\Code{abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefgh ijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz}
+
+\subsubsection{文内引用的插入}
+
+如果我想在文中插入其他文章中的内容或句子，使用\Code{shrinkeq}环境插入，如下所示：
+
+\begin{Quotation}{热爱生命}{汪国真}
+我不去想，\\
+是否能够成功，\\
+既然选择了远方，\\
+便只顾风雨兼程。\\
+\end{Quotation}
+
+本环境接收两个参数：\Code{quotesource}和\Code{quoteauthor}，分别表示引用的文章名称和作者，如果没有作者可以留空，但必须保留大括号，如下所示：
+
+\begin{Quotation}{热爱生命}{}
+    我不去想，\\
+    是否能够成功，\\
+    既然选择了远方，\\
+    便只顾风雨兼程。\\
+\end{Quotation}
 
 \subsubsection{空白页的插入}
 
@@ -449,15 +469,15 @@
 
 \LaTeX{}有规定的公式符号语言，本模板加入了数学公式的入门教程，是英文文档。在文件夹\Code{doc}中，名字叫做\href{doc/The LaTeX Mathematics Companion-Gai.pdf}{\Code{The LaTeX Mathematics Companion-Gai.pdf}}。
 
-\begin{align}
+\begin{equation}
     \text{Minimise:} \mathop {\sum \sum }\limits_{i,j \in N} {x_{i,j}}
-\end{align}
+\end{equation}
 
 \textbf{Constraints}
 
-\begin{align}
+\begin{equation}
     {x_{i,j}} \le 1,\forall i,j \in N
-\end{align}
+\end{equation}
 
 \subsubsection{伪代码示例}
 
@@ -530,6 +550,9 @@ Therefore, if the starting node and the end node are too far apart, the radius o
     \item \textbf{表}, 满足要求，由于latex排版的特性，如果不是超长的表，latex会将表格排在一页中
     \item \textbf{图}, 满足要求，留空正常
     \item \textbf{页眉，页脚}, 支持奇偶页不同，页脚的页码有两种，一是古罗马数字，标记摘要等页数；二是阿拉伯数字标记正文页数
+    \item \textbf{行距}, 正文默认1.5倍行距
+    \item \textbf{字体}, 正文默认为宋体，加粗为黑体，数字和英文字母一般显示为\Code{Times New Roman}字体，中文标题为黑体，等宽字体和高亮字体为\Code{Courier New}字体。
+    \item \textbf{字体大小}, 正文字体大小为小四，页眉页脚字体大小为五号。
 \end{enumerate}
 
 \begin{figure}[H]

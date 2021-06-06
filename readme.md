@@ -18,6 +18,12 @@ Github: [https://github.com/QiQiWan/nitthesis](https://github.com/QiQiWan/nitthe
 
 # 更新记录
 
+## V1.4
+
+- 调整了行间公式的间距，使得显示更加紧密，新增了公式环境`shrinkeq`接受一个参数输入，指定公式行距，其他和`equation`环境使用方法相同
+- 新增了文内引用环境`quotesource`，用法见文档。
+- 调整统一了正文字号大小为**小四**，页眉字号大小为**五号**
+
 ## V1.3
 
 - 新增了插入空白页命令`\BlankPage`，更新了相关文档内容

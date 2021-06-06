@@ -21,13 +21,6 @@
 \RequirePackage{xcolor}
 \RequirePackage[normalem]{ulem}
 
-% \Requirepackage{etoolbox}
-% \makeatletter
-% \def\@xobeysp{\hspace{0pt}\mbox{ }\hspace{0pt}}
-% \appto\verbatim@font{\hyphenchar\font`-\relax}
-% \apptocmd\@sverb{\hspace*{0pt}}{}{}
-% \makeatother
-
 \RequirePackage{titletoc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{fancyhdr}
@@ -106,8 +99,8 @@
 	% \bibliographystyle{plainnat}
 	\linespread{0.5}
 	\newpage
-	\fancyhead[CE]{\MakeUppercase{References}}
-	\bibliography{#1}
+	\fancyhead[CE]{\zihao{5}\zihao{5}\MakeUppercase{References}}
+	{\zihao{5}\bibliography{#1}}
 	\addcontentsline{toc}{section}{\refname} %Add into the content
 }
 
@@ -120,11 +113,28 @@
 	\fi
 	\setcounter{figure}{0}
 	\setcounter{table}{0}
+	\zihao{-4}
 }
 \setlength{\headheight}{15pt}
 
 % Set the indent of the first line in a paragrapha
 \setlength{\parindent}{1em}
+
+% Set the  of the skip between the equation and text
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+
+% Add a equation with the thick vspace
+\newenvironment{shrinkeq}[1]{\bgroup\addtolength\abovedisplayshortskip{#1}\addtolength\abovedisplayskip{#1}\addtolength\belowdisplayshortskip{#1}\addtolength\belowdisplayskip{#1}}{\egroup\ignorespacesafterend}
+
+% Set the quotation environment
+\newenvironment{Quotation}[2]
+{\newcommand{\quotesource}{#1}
+\newcommand{\quoteauthor}{#2}
+	\flushleft
+	\begin{quotation}}
+	{\par\hfill---{\zihao{5}\quoteauthor}《\textit{\quotesource}》
+	\end{quotation}}
 
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
 \renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
@@ -271,10 +281,6 @@
 \newcommand{\MakeCover}{
 	\newpage
 	\MainContentfalse
-<<<<<<< HEAD
-=======
-	\thispagestyle{empty}	
->>>>>>> e186442f63002a45c2e086679d4fc9c58ceeb1fb
 	% \rightline{\quad\includegraphics[width=5cm,height=1cm]{figures/nit-title.jpg}}
 	\vspace*{3cm}
 	\begin{center}
@@ -298,14 +304,10 @@
 
 \newcommand{\MakeAbstract}{
 	\MainContenttrue
-<<<<<<< HEAD
 	\newpage
 	\setcounter{page}{1}
 	\pagenumbering{Roman}
 	\pagestyle{plain}
-=======
-	\pagenumbering{Roman}
->>>>>>> e186442f63002a45c2e086679d4fc9c58ceeb1fb
 	\ifCHMode
 		\include{CHAbstract}
 		\include{Abstract}
@@ -340,10 +342,6 @@
 \newcommand{\MakeContent}{
 	\newpage
 	\MainContentfalse
-<<<<<<< HEAD
-=======
-	\thispagestyle{empty}
->>>>>>> e186442f63002a45c2e086679d4fc9c58ceeb1fb
 	\pdfbookmark[1]{\contentsname}{anchor}
 	\pagestyle{empty}
 	\tableofcontents
@@ -376,7 +374,7 @@
 \newenvironment{Summary}{
 	\newpage
 	\section*{\SummaryName}
-	\fancyhead[CE]{\MakeUppercase{\SummaryName}}
+	\fancyhead[CE]{\zihao{5}\zihao{5}\MakeUppercase{\SummaryName}}
 	\addcontentsline{toc}{section}{\SummaryName}
 }{\newpage}
 
@@ -385,7 +383,7 @@
 \newenvironment{Acknowledgement}{
 	\newpage
 	\section*{\acknowledgementname}
-	\fancyhead[CE]{\MakeUppercase{\acknowledgementname}}
+	\fancyhead[CE]{\zihao{5}\MakeUppercase{\acknowledgementname}}
 	\addcontentsline{toc}{section}{\acknowledgementname}
 }{\newpage}
 
@@ -394,7 +392,7 @@
 \newenvironment{UndergraduateThesis}{
 	\newpage
 	\section*{\UndergraduateThesisName}
-	\fancyhead[CE]{\MakeUppercase{\UndergraduateThesisName}}
+	\fancyhead[CE]{\zihao{5}\MakeUppercase{\UndergraduateThesisName}}
 	\addcontentsline{toc}{section}{\UndergraduateThesisName}
 }{\newpage}
 
@@ -403,7 +401,7 @@
 \newenvironment{Appendix}{
 	\newpage
 	\section*{\appendixname}
-	\fancyhead[CE]{\MakeUppercase{\appendixname}}
+	\fancyhead[CE]{\zihao{5}\MakeUppercase{\appendixname}}
 	\addcontentsline{toc}{section}{\appendixname}
 	\linespread{1}
 }{\newpage}
@@ -448,8 +446,8 @@
 	\pagestyle{fancy}
 	\fancyhf{}
 	\fancyhead{}
-	\fancyhead[CE]{\FancyTitle}  %Odd page header
-	\fancyhead[CO]{南昌工程学院本（专）科毕业论文（设计）}   %Even page header
+	\fancyhead[CE]{\zihao{5}\FancyTitle}  %Odd page header
+	\fancyhead[CO]{\zihao{5}南昌工程学院本（专）科毕业论文（设计）}   %Even page header
 	\cfoot{\thepage}
 }
 
